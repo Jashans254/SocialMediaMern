@@ -1,45 +1,76 @@
-import React from 'react'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { AiOutlineHome  , AiFillHome} from "react-icons/ai";
-import { BsCameraReels , BsCameraReelsFill } from "react-icons/bs";
-import { IoSearchCircleOutline , IoSearchCircle} from "react-icons/io5";
-import { IoChatbubbleEllipses , IoChatbubbleEllipsesOutline } from "react-icons/io5";
-import { RiAccountCircleLine ,RiAccountCircleFill } from "react-icons/ri";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { AiOutlineHome, AiFillHome } from "react-icons/ai";
+import { BsCameraReels, BsCameraReelsFill } from "react-icons/bs";
+import { IoSearchCircleOutline, IoSearchCircle } from "react-icons/io5";
+import { IoChatbubbleEllipses, IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { RiAccountCircleLine, RiAccountCircleFill } from "react-icons/ri";
+
 const NavigationBar = () => {
-    const [tab , setTab] = useState(window.location.pathname);
-    console.log(tab)
+  const location = useLocation(); // Get the current location
+
   return (
-    <div className='fixed bottom-0 w-full bg-white py-3'>
-        <div className="flex justify-around">
-            <Link to={"/"} onClick={() => setTab("/")} className='flex flex-col items-center text-2xl' >
-                <span>
-                {tab === "/" ? <AiFillHome /> :<AiOutlineHome />}
-                </span>
-            </Link>  
-            <Link to={"/reels"} onClick={() => setTab("/reels")} className='flex flex-col items-center text-2xl' >
-                <span>
-                {tab === "/reels" ? <BsCameraReelsFill /> :<BsCameraReels />}
-                </span>
-            </Link>  
-            <Link to={"/search"} onClick={() => setTab("/search")} className='flex flex-col items-center text-2xl' >
-                <span>
-                {tab === "/search" ? <IoSearchCircle /> :<IoSearchCircleOutline />}
-                </span>
-            </Link>  
-            <Link to={"/chat"}  onClick={() => setTab("/chat")} className='flex flex-col items-center text-2xl' >
-                <span>
-                {tab === "/chat" ? <IoChatbubbleEllipses /> :<IoChatbubbleEllipsesOutline />}
-                </span>
-            </Link>  
-            <Link to={"/account"} onClick={() => setTab("/account")} className='flex flex-col items-center text-2xl' >
-                <span>
-                {tab === "/account" ? <RiAccountCircleFill /> :<RiAccountCircleLine />}
-                </span>
-            </Link>   
-        </div>
+    <div className='fixed bottom-0 w-full bg-white py-3 shadow-md'>
+      <div className="flex justify-around items-center">
+
+        {/* Home Tab */}
+        <Link 
+          to="/" 
+          className={`flex flex-col items-center text-2xl transition-transform duration-200 ${
+            location.pathname === "/" ? "text-blue-600 scale-110" : "text-gray-500 hover:text-blue-600"
+          }`}
+        >
+          <span>{location.pathname === "/" ? <AiFillHome /> : <AiOutlineHome />}</span>
+          <span className="text-sm mt-1">Home</span>
+        </Link>
+
+        {/* Reels Tab */}
+        <Link 
+          to="/reels" 
+          className={`flex flex-col items-center text-2xl transition-transform duration-200 ${
+            location.pathname === "/reels" ? "text-blue-600 scale-110" : "text-gray-500 hover:text-blue-600"
+          }`}
+        >
+          <span>{location.pathname === "/reels" ? <BsCameraReelsFill /> : <BsCameraReels />}</span>
+          <span className="text-sm mt-1">Reels</span>
+        </Link>
+
+        {/* Search Tab */}
+        <Link 
+          to="/search" 
+          className={`flex flex-col items-center text-2xl transition-transform duration-200 ${
+            location.pathname === "/search" ? "text-blue-600 scale-110" : "text-gray-500 hover:text-blue-600"
+          }`}
+        >
+          <span>{location.pathname === "/search" ? <IoSearchCircle /> : <IoSearchCircleOutline />}</span>
+          <span className="text-sm mt-1">Search</span>
+        </Link>
+
+        {/* Chat Tab */}
+        <Link 
+          to="/chat" 
+          className={`flex flex-col items-center text-2xl transition-transform duration-200 ${
+            location.pathname === "/chat" ? "text-blue-600 scale-110" : "text-gray-500 hover:text-blue-600"
+          }`}
+        >
+          <span>{location.pathname === "/chat" ? <IoChatbubbleEllipses /> : <IoChatbubbleEllipsesOutline />}</span>
+          <span className="text-sm mt-1">Chat</span>
+        </Link>
+
+        {/* Account Tab */}
+        <Link 
+          to="/account" 
+          className={`flex flex-col items-center text-2xl transition-transform duration-200 ${
+            location.pathname === "/account" ? "text-blue-600 scale-110" : "text-gray-500 hover:text-blue-600"
+          }`}
+        >
+          <span>{location.pathname === "/account" ? <RiAccountCircleFill /> : <RiAccountCircleLine />}</span>
+          <span className="text-sm mt-1">Account</span>
+        </Link>
+
+      </div>
     </div>
-  )
+  );
 }
 
-export default NavigationBar
+export default NavigationBar;

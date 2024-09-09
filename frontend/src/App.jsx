@@ -12,6 +12,7 @@ import { Loading } from './components/Loading'
 import UserAccount from './pages/UserAccount'
 import Search from './pages/Search'
 import ChatPage from './pages/ChatPage'
+import Header from './components/Header'
 
 
 
@@ -34,7 +35,7 @@ const App = () => {
           <Route path="/chat"  element={isAuth?<ChatPage user= {user}/>:<Login/>}/>
 
         </Routes>
-        {isAuth && <NavigationBar/> }
+        {isAuth && <> <Header/> <NavigationBar/> </> }
       </BrowserRouter>)}
     </>
   )

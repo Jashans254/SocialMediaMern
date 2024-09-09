@@ -41,21 +41,25 @@ const MessageInput = ({setMessages , selectedChat}) => {
         }
     }
   return (
-    <div>
-      <form onSubmit={handleMessage}>
-        <input
-          type="text"
-          placeholder="enter Message"
-          className="border border-gray-300 rounded-lg p-2 w-[80%]"
-          value={textMsg}
-          onChange={(e) => setTextMsg(e.target.value)}
-          required
-        />
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded-lg">
-          send
-        </button>
-      </form>
-    </div>
+    <div className="flex items-center justify-between mt-4">
+    <form onSubmit={handleMessage} className="flex w-full">
+      <input
+        type="text"
+        placeholder="Enter your message..."
+        className="border border-gray-300 rounded-lg p-3 w-full mr-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
+        value={textMsg}
+        onChange={(e) => setTextMsg(e.target.value)}
+        required
+      />
+      <button
+        type="submit"
+        className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 rounded-lg shadow-md transition-transform duration-200 transform hover:scale-105"
+      >
+        Send
+      </button>
+    </form>
+  </div>
+  
   )
 }
 

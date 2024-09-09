@@ -12,3 +12,31 @@
     @apply px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-gradient-to-l from-blue-400 to-yellow-400
     font-medium m-2 mb-6 hover:from-blue-500 hover:to-yellow-500
 }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #007bff; /* Color of the scrollbar handle */
+    border-radius: 10px; /* Rounded corners for the handle */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0056b3; /* Color on hover */
+  }
+  .post-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .post-card:hover {
+    transform: scale(1.05); /* Slightly larger scaling for a more pronounced effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  }
+  
+  

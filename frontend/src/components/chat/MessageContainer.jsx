@@ -79,23 +79,39 @@ const MessageContainer = ({selectedChat , setChats}) => {
                     {
                         loading ? <LoadingAnimation/>:
                         <>
-                        <div ref={messageContainerRef} 
-                        className="flex flex-col gap-4 my-4 h-[400px] overflow-y-auto border-gray-300 bg-gray-100 p-3" >
-                            {
-                                messages && messages.map ( (e)=>(
-                                    <Message 
-                                    key={e._id}
-                                    message={e.text}
-                                     ownMessage = {e.sender === user._id && true}
-                                     />
-                                ))
-                            }
+                        <div 
+                          ref={messageContainerRef} 
+                          className="flex flex-col gap-4 my-4 h-[400px] overflow-y-auto border border-gray-300 bg-white rounded-lg shadow-lg p-4"
+                          style={{
+                            borderRadius: '15px', // Smoother rounded corners
+                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)', // More prominent shadow for depth
+                            background: 'linear-gradient(to bottom, #f8f9fa, #e9ecef)', // Soft gradient background
+                          }}
+                        >
+                          {
+                            messages && messages.length > 0 ? (
+                              messages.map((e) => (
+                                <Message 
+                                  key={e._id}
+                                  message={e.text}
+                                  ownMessage={e.sender === user._id}
+                                />
+                              ))
+                            ) : (
+                              <div className="text-gray-500 text-center text-lg">
+                                No messages yet. Start the conversation!
+                              </div>
+                            )
+                          }
                         </div>
-
+                      
                         <MessageInput
-                         setMessages={setMessages}
-                          selectedChat={selectedChat}/>
-                        </>
+                          setMessages={setMessages}
+                          selectedChat={selectedChat}
+                        />
+                      </>
+                      
+                      
                     }
                 </div>
             )

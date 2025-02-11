@@ -52,25 +52,19 @@ export const registerUser = TryCatch(async(req , res) =>{
 
 export const loginUser = TryCatch(async(req , res) =>{
     const {email , password} = req.body;
-
     const user = await User.findOne({email});
-
     if(!user) {
         return res.status(400).json({
             message : "Invalid credentials",
         })
     }
-
     const comparePassword = await bcrypt.compare(password , user.password);
-
     if(!comparePassword){
         return res.status(400).json({
             message : "Invalid credentials",
         })
     }
-
     generateToken(user._id , res);
-
     res.json({
         message:"user logged in" ,
         user 

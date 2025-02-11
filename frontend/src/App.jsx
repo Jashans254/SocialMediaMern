@@ -13,13 +13,8 @@ import UserAccount from './pages/UserAccount'
 import Search from './pages/Search'
 import ChatPage from './pages/ChatPage'
 import Header from './components/Header'
-
-
-
 const App = () => {
     const {loading , isAuth , user} = UserData();
-   
-
   return (
     <>
       {loading?(<Loading/>):(<BrowserRouter>
@@ -33,12 +28,10 @@ const App = () => {
           <Route path='*' element={<NotFound/>}/>
           <Route path="/search"  element={isAuth?<Search/>:<Login/>}/>
           <Route path="/chat"  element={isAuth?<ChatPage user= {user}/>:<Login/>}/>
-
         </Routes>
         {isAuth && <> <Header/> <NavigationBar/> </> }
       </BrowserRouter>)}
     </>
   )
 }
-
 export default App

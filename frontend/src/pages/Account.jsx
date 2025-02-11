@@ -148,7 +148,7 @@ const Account = ({user}) => {
         id="file-upload"
         type="file"
         onChange={changeFileHandler}
-        accept="application/pdf" // Limit file type to images
+        accept="image/*" // Limit file type to images
         required
       />
       <button

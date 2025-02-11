@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const messageSchema = new mongoose.Schema({
     chatId :{
         type:mongoose.Schema.Types.ObjectId,
@@ -12,5 +11,4 @@ const messageSchema = new mongoose.Schema({
     text:String,
 }, {
     timestamps:true})
-
 export const Messages = mongoose.model("Messages" , messageSchema)

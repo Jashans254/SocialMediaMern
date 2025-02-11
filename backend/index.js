@@ -5,6 +5,7 @@ import cloudinary from "cloudinary";
 import cookieParser from "cookie-parser";
 import {app , server } from "./socket/socket.js";
 import path from 'path'
+import axios from "axios";
 
 dotenv.config();
 

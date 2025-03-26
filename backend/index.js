@@ -28,21 +28,21 @@ app.use(cookieParser());
 const port = process.env.PORT ;
 
 
-const url = `https://socialmediamern-n4gs.onrender.com`;
-const interval = 30000;
+// const url = `https://socialmediamern-n4gs.onrender.com`;
+// const interval = 30000;
 
-function reloadWebsite() {
-  axios
-    .get(url)
-    .then((response) => {
-      console.log("website reloded");
-    })
-    .catch((error) => {
-      console.error(`Error : ${error.message}`);
-    });
-}
+// function reloadWebsite() {
+//   axios
+//     .get(url)
+//     .then((response) => {
+//       console.log("website reloded");
+//     })
+//     .catch((error) => {
+//       console.error(`Error : ${error.message}`);
+//     });
+// }
 
-setInterval(reloadWebsite, interval);
+// setInterval(reloadWebsite, interval);
 
 // importing routes 
 import userRoutes from "./routes/userRoutes.js";
